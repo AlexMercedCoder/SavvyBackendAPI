@@ -2,5 +2,7 @@
     "name": "erikalex/savvyhotspots",
     "description": "API for Savvy Hotspots Application",
     "type": "project",
-    "require": {}
+    "require": {
+        "csanquer/pdo-service-provider": "~1.1dev"
+    }
 }
