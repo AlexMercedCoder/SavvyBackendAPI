@@ -35,9 +35,9 @@ class Comments {
     static function all(){
         //create an empty array
         $comments = array();
-        $dbconn = pg_connect(getenv('DATABASE_URL'));
+
         //query the database
-        $results = pg_query(pg_connect($dbconn,"SELECT * FROM comments");
+        $results = pg_query(pg_connect(getenv('DATABASE_URL'),"SELECT * FROM comments"));
 
         $row_object = pg_fetch_object($results);
         // var_dump($row_object);
