@@ -46,7 +46,7 @@ class Comments {
                     $new_comment = new Comment(
                         intval($row_object->id),
                         intval($row_object->restid),
-                        intval$row_object->author,
+                        $row_object->author,
                         $row_object->comment,
                         $row_object->password,
                         $row_object->date
