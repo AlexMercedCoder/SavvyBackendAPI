@@ -8,7 +8,7 @@ $DBURL = getenv('DATABASE_URL');
 
 // $db = new PDO($dsn);
 
-$dbconn = pg_connect("host=$DBURL dbname=d3qvmqtmq9s8b user=cticedgggntdqf port=5432 password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146");
+$dbconn = pg_connect($DBURL);
 // (id SERIAL, restid int, author varchar(30), comment varchar(140), password varchar(8), date timestamp DEFAULT now())
 
 class Comment {
@@ -19,7 +19,7 @@ class Comment {
     public $password;
     public $date;
 
-    public function __construct($id, $restid, $estValue, $comment, $password, $date) {
+    public function __construct($id, $restid, $author, $comment, $password, $date) {
         $this->id = $id;
         $this->restid = $restid;
         $this->author = $author;
@@ -38,7 +38,40 @@ class Comments {
         $comments = array();
 
         //query the database
-        $results = pg_query("SELECT * FROM comments;");
+        $results = pg_query($dbconn,"SELECT * FROM comments;");
+
+        $row_object = pg_fetch_object($results);
+        // var_dump($row_object);
+        while($row_object){
+
+                    $new_comment = new Comment(
+                        intval($row_object->id),
+                        intval($row_object->restid),
+                        $row_object->author,
+                        $row_object->comment,
+                        $row_object->password,
+                        $row_object->date
+
+                    );
+                    $comments[] = $new_comment;
+
+                    // print_r($comments);
+                    $row_object = pg_fetch_object($results);
+                }
+
+        // die(); //halt execution
+
+        // print_r($comments);
+        return $comments;
+    }
+
+
+    static function some($restid){
+        //create an empty array
+        $comments = array();
+
+        //query the database
+        $results = pg_query("SELECT * FROM comments WHERE restid=$restid;");
 
         $row_object = pg_fetch_object($results);
         // var_dump($row_object);

@@ -12,6 +12,13 @@ if ($_REQUEST['action'] === 'index'){
 }
 
 
+else if ($_REQUEST['action'] === 'query'){
+
+    echo json_encode(Comments::some($_REQUEST['restid']));
+
+}
+
+
 else if ($_REQUEST['action'] === 'post'){
 
     $request_body = file_get_contents('php://input');
