@@ -16,7 +16,7 @@ class Comment {
     public function __construct($id, $restid, $estValue, $comment, $password, $date) {
         $this->id = $id;
         $this->restid = $restid;
-        $this->author = $estValue;
+        $this->author = $author;
         $this->comment = $comment;
         $this->password = $password;
         $this->date = $date;
@@ -61,15 +61,15 @@ class Comments {
 
 
     static function create($comment){
-        $query = "INSERT INTO comments (restid, author, comment, password) VALUES ($1, $2, $3, $4)";
-        $query_params = array($comment->restid, $comment->author, $comment->comment, $comment->password);
+        $query = "INSERT INTO comments (restid, author, comment, password, date) VALUES ($1, $2, $3, $4, $5)";
+        $query_params = array($comment->restid, $comment->author, $comment->comment, $comment->password, $comment->date);
         pg_query_params($query, $query_params);
         return self::all();
     }
 
     static function update($updated_comment){
-        $query = "UPDATE comments SET restid = $1, author = $2, comment = $3, password=$4 WHERE id = $5";
-        $query_params = array($updated_comment->restid, $updated_comment->author, $updated_comment->comment, $updated_comment->password,$updated_comment->id);
+        $query = "UPDATE comments SET restid = $1, author = $2, comment = $3, password=$4, date = $5 WHERE id = $6";
+        $query_params = array($updated_comment->restid, $updated_comment->author, $updated_comment->comment, $updated_comment->password,$updated_comment->date,$updated_comment->id);
         $result = pg_query_params($query, $query_params);
 
         return self::all();

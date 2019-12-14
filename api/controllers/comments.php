@@ -18,7 +18,7 @@ else if ($_REQUEST['action'] === 'post'){
     var_dump($request_body);
     $body_object = json_decode($request_body);
     var_dump($body_object);
-    $new_comment = new Comment(null, $body_object->name,$body_object->estvalue,$body_object->events,$body_object->giver);
+    $new_comment = new Comment(null, $body_object->restid,$body_object->author,$body_object->comment,$body_object->password,$body_object->date);
     $all_comments = Comments::create($new_comment); //store the return value of People::create into a var
 
     //send the return value of People::create (all people in the db) back to the user
@@ -30,7 +30,7 @@ else if ($_REQUEST['action'] === 'update'){
 
     $request_body = file_get_contents('php://input');
     $body_object = json_decode($request_body);
-    $updated_comment = new Comment($_REQUEST['id'], $body_object->name, $body_object->estvalue,$body_object->events,$body_object->giver);
+    $updated_comment = new Comment($_REQUEST['id'], $body_object->restid, $body_object->author,$body_object->comment,$body_object->password,$body_object->date);
     $all_comments = Comments::update($updated_comment);
 
     echo json_encode($all_comments);
