@@ -6,7 +6,7 @@ $h="ec2-174-129-253-27.compute-1.amazonaws.com";
 $n="d3qvmqtmq9s8b";
 $u="cticedgggntdqf";
 $p="5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
-$DBURL = "host=$h dbname=$n user=$u port=5432 password=$p";
+$DBURL = "host=$h dbname=$n user=$u port=5432 password=$p sslmode=require";
 
 // $dsn="psql:host=$DBURL;dbname=d3qvmqtmq9s8b user=cticedgggntdqf;user=cticedgggntdqf;port=5432;password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
 
