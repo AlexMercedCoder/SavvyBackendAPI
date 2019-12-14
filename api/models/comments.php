@@ -2,28 +2,28 @@
 
 // require_once '../../vendor/autoload.php';
 
-// $h="ec2-174-129-253-27.compute-1.amazonaws.com";
-// $n="d3qvmqtmq9s8b";
-// $u="cticedgggntdqf";
-// $p="5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
-// $DBURL = "host=$h dbname=$n user=$u port=5432 password=$p sslmode=require";
+$h="ec2-174-129-253-27.compute-1.amazonaws.com";
+$n="d3qvmqtmq9s8b";
+$u="cticedgggntdqf";
+$p="5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
+$DBURL = "host=$h dbname=$n user=$u port=5432 password=$p sslmode=require";
 
 // $dsn="psql:host=$DBURL;dbname=d3qvmqtmq9s8b user=cticedgggntdqf;user=cticedgggntdqf;port=5432;password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
 
 // $db = new PDO($dsn);
-// $dbconn = pg_connect("$DBURL");
+$dbconn = pg_connect("$DBURL");
 // (id SERIAL, restid int, author varchar(30), comment varchar(140), password varchar(8), date timestamp DEFAULT now())
 
-$db = parse_url(getenv("DATABASE_URL"));
-
-$dbconn = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
+// $db = parse_url(getenv("DATABASE_URL"));
+//
+// $dbconn = new PDO("pgsql:" . sprintf(
+//     "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+//     $db["host"],
+//     $db["port"],
+//     $db["user"],
+//     $db["pass"],
+//     ltrim($db["path"], "/")
+// ));
 
 class Comment {
     public $id;
