@@ -1,7 +1,8 @@
 <?PHP
 
+$DBURL = getenv('DATABASE_URL')
 
-$dbconn = pg_connect("host=localhost dbrestid=recomment user=postgres password=database");
+$dbconn = pg_connect("host=$DBURL dbname=d3qvmqtmq9s8b user=cticedgggntdqf port=5432 password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146");
 // (id SERIAL, restid int, author varchar(30), comment varchar(140), password varchar(8), date timestamp)
 
 class Comment {
