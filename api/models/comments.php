@@ -2,10 +2,10 @@
 
 $DBURL = getenv('DATABASE_URL');
 
-$dsn="psql:host=postgres://cticedgggntdqf:5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146@ec2-174-129-253-27.compute-1.amazonaws.com:5432/d3qvmqtmq9s8b
-;dbname=d3qvmqtmq9s8b user=cticedgggntdqf;user=cticedgggntdqf;port=5432;password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
+$dsn="psql:host=$DBURL;dbname=d3qvmqtmq9s8b user=cticedgggntdqf;user=cticedgggntdqf;port=5432;password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146";
 
 $db = new PDO($dsn);
+
 
 // $dbconn = pg_connect("host=$DBURL dbname=d3qvmqtmq9s8b user=cticedgggntdqf port=5432 password=5d17168b471db3b178e8ede79d5f92605d765375ea153444cd403c0a544f2146");
 // (id SERIAL, restid int, author varchar(30), comment varchar(140), password varchar(8), date timestamp DEFAULT now())
