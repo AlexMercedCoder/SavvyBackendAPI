@@ -38,7 +38,7 @@ class Comments {
         $comments = array();
 
         //query the database
-        $results = pg_query("SELECT * FROM comments");
+        $results = pg_query("SELECT * FROM comments;");
 
         $row_object = pg_fetch_object($results);
         // var_dump($row_object);

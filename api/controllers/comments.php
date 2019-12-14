@@ -7,7 +7,6 @@ include_once '../models/comments.php';
 
 if ($_REQUEST['action'] === 'index'){
 
-    echo 'hello';
     echo json_encode(Comments::all());
 
 }
