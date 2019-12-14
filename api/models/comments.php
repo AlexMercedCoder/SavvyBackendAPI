@@ -16,7 +16,7 @@ class Comment {
     public $author;
     public $comment;
     public $password;
-    public $date
+    public $date;
 
     public function __construct($id, $restid, $estValue, $comment, $password, $date) {
         $this->id = $id;
