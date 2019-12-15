@@ -107,8 +107,8 @@ class Comments {
 
 
     static function create($comment){
-        $query = "INSERT INTO comments (restid, author, comment, password, date) VALUES ($1, $2, $3, $4, $5)";
-        $query_params = array($comment->restid, $comment->author, $comment->comment, $comment->password, $comment->date);
+        $query = "INSERT INTO comments (restid, author, comment, password) VALUES ($1, $2, $3, $4)";
+        $query_params = array($comment->restid, $comment->author, $comment->comment, $comment->password);
         pg_query_params($query, $query_params);
         return self::all();
     }
