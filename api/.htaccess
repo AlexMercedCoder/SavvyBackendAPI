@@ -1,4 +1,4 @@
-Header add Access-Control-Allow-Origin: "localhost:3000,savvyhotspots.netlify.com"
+Header add Access-Control-Allow-Origin: "*"
 Header add Access-Control-Allow-Methods: "*"
 Header add Access-Control-Allow-Headers: "*"
 
